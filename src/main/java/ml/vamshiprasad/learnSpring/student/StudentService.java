@@ -29,6 +29,12 @@ public class StudentService {
             studentRepository.save(student);
         }
     }
+
+    public void deleteStudent(Long id) {
+        boolean exists = studentRepository.existsById(id);
+        if(!exists) throw new IllegalStateException(("Student with Student ID : "+id+" Does not exist!"));
+        else studentRepository.deleteById(id);
+    }
 }
 
 //                new Student(UUID.randomUUID(), "P Vamshi Prasad", LocalDate.of(1999, Month.JULY, 11), 22, "vamvijkum@gmail.com")
