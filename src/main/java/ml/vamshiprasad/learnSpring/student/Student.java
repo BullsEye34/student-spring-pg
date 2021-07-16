@@ -2,7 +2,6 @@ package ml.vamshiprasad.learnSpring.student;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table
@@ -17,7 +16,7 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-    private UUID id;
+    private Long id;
     private String name;
     private LocalDate dob;
     private Integer age;
@@ -33,7 +32,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(UUID id, String name, LocalDate dob, Integer age, String email) {
+    public Student(Long id, String name, LocalDate dob, Integer age, String email) {
         this.id = id;
         this.name = name;
         this.dob = dob;
@@ -52,11 +51,11 @@ public class Student {
                 '}';
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
